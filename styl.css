@@ -1,0 +1,69 @@
+#srodek {
+    background-color: #b6a9d6;
+    width: 84.8%;
+    height: 88.7%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top:0px;
+    right:0px;
+    border-left: 3px solid rgb(255, 255, 169);
+    border-bottom: 3px solid rgb(255, 255, 169);
+}
+#dol{
+    background-color: #b29fe3;
+    height: 11%;
+    width: 100%;
+    position: absolute;
+    bottom:0px;
+    left:0px;
+}
+#timer{
+    position: absolute;
+    top:50px;
+    font-weight: bold;
+}
+#srodek img {
+    height: 70%;
+    transition: filter 0.3s ease-in-out;
+    filter: brightness(10%); 
+}
+
+#srodek img:hover {
+    filter: brightness(100%); 
+}
+
+#srodek .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    opacity: 1; 
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none; 
+}
+
+#srodek img:hover + .overlay { 
+    opacity: 0; 
+}
+#lewa {
+    width: 15%;
+    background-color: #b29fe3;
+    height: 89%;
+    position: absolute;
+    top:0px;
+    left: 0px;
+}
+
+#lewa img{
+    width: 100%;
+}
+p{
+    text-align: right;
+}
