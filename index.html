@@ -41,19 +41,19 @@
             i=1; 
             localStorage.setItem("chocoCount", i);
             emailjs.send("service_aqzmw9f","template_73mj5pv",{
-                email: "martusiowaczekolada@gmail.com",subject:"Kopa w dupe teraz dostanie"});
+                email: "martusiowaczekoladka@gmail.com",subject:"Kopa w dupe teraz dostanie"});
         }
         else if(i==0){
             choc = new Date;
             document.getElementById("choco").innerText = "Czekolada zostanie dostarczona o7!";
             emailjs.send("service_aqzmw9f","template_73mj5pv",{
-                email: "martusiowaczekolada@gmail.com",subject:"Czekolada się należy"});
+                email: "martusiowaczekoladka@gmail.com",subject:"Czekolada się należy"});
         
         }
         else if(i%10===0){
             document.getElementById("choco").innerText = "Wygrała pani buziaka!";
             emailjs.send("service_aqzmw9f","template_73mj5pv",{
-                email: "martusiowaczekolada@gmail.com",subject:"Buziaczek dla Martusi"});
+                email: "martusiowaczekoladka@gmail.com",subject:"Buziaczek dla Martusi"});
         
         }
         else{
