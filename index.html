@@ -16,6 +16,7 @@
 <li>Nadal myślę co tu dodać więc na efekt finaly chwilkę poczekasz, ale myślę że dasz radę</li>
         </ul><button id="choc" onclick=Hungry()>Czekoladka</button>
         <span id="choco"></span>
+        <button onclick="reset()">Reset</button>
 </div>
 <div id="srodek">   <div id="timer">Jak długo jesteśmy razem: 00d 00h 00m 00s</div>
 
@@ -23,6 +24,10 @@
     window.onload = () => {
     emailjs.init('h-UPGoeccy7eDUssZ');
     };
+    function email(temat){
+        emailjs.send("service_aqzmw9f","template_73mj5pv",{
+                email: "martusiowaczekoladka@gmail.com",subject:temat});
+        } 
     const startDate = new Date('2023-11-07T17:50:00');
     function reset(){
         localStorage.setItem("chocoCount", 0);
@@ -40,20 +45,17 @@
             document.getElementById("choco").innerText = "Został wybrany kop w pupę!";
             i=1; 
             localStorage.setItem("chocoCount", i);
-            emailjs.send("service_aqzmw9f","template_73mj5pv",{
-                email: "martusiowaczekoladka@gmail.com",subject:"Kopa w dupe teraz dostanie"});
+            email("Kopa na dupę Martusi!");
         }
         else if(i==0){
             choc = new Date;
             document.getElementById("choco").innerText = "Czekolada zostanie dostarczona o7!";
-            emailjs.send("service_aqzmw9f","template_73mj5pv",{
-                email: "martusiowaczekoladka@gmail.com",subject:"Czekolada się należy"});
+            email("Czekoladka tym razem");
         
         }
         else if(i%10===0){
             document.getElementById("choco").innerText = "Wygrała pani buziaka!";
-            emailjs.send("service_aqzmw9f","template_73mj5pv",{
-                email: "martusiowaczekoladka@gmail.com",subject:"Buziaczek dla Martusi"});
+            email("Buziaczek mej kochanej!");
         
         }
         else{
