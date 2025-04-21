@@ -1,0 +1,91 @@
+<html lang="pl">
+
+
+<head >
+
+<title>To my!!</title>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="styl.css"> <!--Budowa strony -->
+<link rel="icon" type="png" href="heart.png"> <!--Ikona  -->
+</head>
+
+<body> 
+    <div id="lewa" ><img src="Kotek.png">
+    <ul><li>Kocham Cię!!</li>
+    <li><a href="totezmy.html">To też my!(kliknij)</a></li>
+<li>Nadal myślę co tu dodać więc na efekt finaly chwilkę poczekasz, ale myślę że dasz radę</li>
+        </ul><button id="choc" onclick=Hungry()>Czekoladka</button>
+        <span id="choco"></span>
+        <button onclick="reset()">Reset</button>
+</div>
+<div id="srodek">   <div id="timer">Jak długo jesteśmy razem: 00d 00h 00m 00s</div>
+
+<script >
+    window.onload = () => {
+    emailjs.init('h-UPGoeccy7eDUssZ');
+    };
+    function email(temat){
+        emailjs.send("service_aqzmw9f","template_73mj5pv",{
+                email: "martusiowaczekoladka@gmail.com",subject:temat});
+        } 
+    const startDate = new Date('2023-11-07T17:50:00');
+    function reset(){
+        localStorage.setItem("chocoCount", 0);
+    }
+    function Hungry(){
+        const now = new Date();
+        let chocRaw = localStorage.getItem("choc");
+        let choc = chocRaw ? new Date(chocRaw) : new Date('2023-11-07T17:50:00')
+        const days = (now - choc)/ (1000 * 60 * 60 * 24);
+        let i = parseInt(localStorage.getItem("chocoCount")) || 0;
+        if(days>=30){
+            i=0;
+        }
+        if(i>99){
+            document.getElementById("choco").innerText = "Został wybrany kop w pupę!";
+            i=1; 
+            localStorage.setItem("chocoCount", i);
+            email("Kopa na dupę Martusi!");
+        }
+        else if(i==0){
+            choc = new Date;
+            document.getElementById("choco").innerText = "Czekolada zostanie dostarczona o7!";
+            email("Czekoladka tym razem");
+        
+        }
+        else if(i%10===0){
+            document.getElementById("choco").innerText = "Wygrała pani buziaka!";
+            email("Buziaczek mej kochanej!");
+        
+        }
+        else{
+            document.getElementById("choco").innerText = "Czekolada została kliknięta w ciągu ostatnich 30 dni:(";
+        }
+        
+        i++;
+        localStorage.setItem("chocoCount", i);
+        localStorage.setItem("choc", choc.toISOString());
+    }
+    function updateTimer() {
+        const now = new Date();
+        const diff = now - startDate; 
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        const timeString = `Jak długo jesteśmy razem: ${days} dni ${hours} godzin ${minutes} minut  ${seconds} sekund`;
+
+        document.getElementById('timer').innerText = timeString;
+    }
+    updateTimer();
+    setInterval(updateTimer, 1000);
+</script>
+
+<img src="Martamoja.png"><div class="overlay">Najedź na mnie myszką</div></div>
+<div id="dol"><p><i>Wykonał z pełną miłością: Kacper Siedlecki dla ukochanej dziewczyny Marty!!</i></p></div>
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+</body>
+
+</html>
