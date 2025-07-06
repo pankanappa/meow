@@ -30,14 +30,19 @@
     background-color: #b6a9d6;
     width: 84.8%;
     height: 88.7%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: absolute; 
     top:0px;
     right:0px;
     border-left: 3px solid rgb(255, 255, 169);
     border-bottom: 3px solid rgb(255, 255, 169);
+    overflow-y:scroll;
+}
+#reszta{
+    position: relative;
+    top:660px;
+}
+::-webkit-scrollbar {
+    width: 0px;
 }
 #dol{
     background-color: #b29fe3;
@@ -50,12 +55,16 @@
 #timer{
     position: absolute;
     top:50px;
+    left:400px;
     font-weight: bold;
 }
 #srodek img {
     height: 70%;
     transition: filter 0.3s ease-in-out;
     filter: brightness(10%); 
+    position: absolute;
+    top:100px;
+    left:70px;
 }
 
 #srodek img:hover {
